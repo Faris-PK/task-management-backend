@@ -34,6 +34,9 @@ export const register = async (req, res) => {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
             maxAge: 30 * 24 * 60 * 60 * 1000, 
+            sameSite: 'none', 
+            secure: true,     
+            path: '/'
         });
 
         res.status(201).json({
@@ -60,6 +63,9 @@ export const login = async (req, res) => {
                 httpOnly: true, 
                 secure: process.env.NODE_ENV === 'production', 
                 maxAge: 30 * 24 * 60 * 60 * 1000, 
+                sameSite: 'none', 
+                secure: true,     
+                path: '/'
             });
 
             res.status(200).json({
